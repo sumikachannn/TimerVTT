@@ -69,7 +69,7 @@ export async function createTimer(duration, description = "", tickSound = true, 
     msg.timer--;
     msg.data.content = timerText(msg.timer, msg.description);
 
-    if (tickSound && msg.timer <= 10 && msg.timer > 0) {
+    if (tickSound && msg.timer <= duration && msg.timer > 0) {
       AudioHelper.play({
         src: "./modules/timer/audio/tick" + ((msg.timer + 1) % 2 + 1) + ".wav",
         volume: 1.0, autoplay: true, loop: false
